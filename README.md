@@ -1,2 +1,2 @@
-# microservices-with-spring-boot
+# Microservices with Spring Boot
 Collection of microservices built with Spring Boot
