@@ -5,10 +5,10 @@ import com.fabiogaiera.athena.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @RestController
@@ -18,14 +18,32 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public ResponseEntity<Customer> retrieveCustomer(Long identifier) {
-
-        Customer customer = customerService.getCustomer(identifier);
+    public ResponseEntity<Customer> getCustomer(@Valid
+                                                @NotNull Long customerId) {
+        Customer customer = customerService.getCustomer(customerId);
         if (Objects.isNull(customer)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
 
+    @PostMapping
+    public ResponseEntity<Void> newCustomer(@RequestBody
+                                            @Valid
+                                            @NotNull Customer customer) {
+        customerService.newCustomer(customer);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteCustomer(@Valid
+                                               @NotNull Long customerId) {
+        Customer customer = customerService.getCustomer(customerId);
+        if (Objects.isNull(customer)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        customerService.deleteCustomer(customer);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @Autowired
