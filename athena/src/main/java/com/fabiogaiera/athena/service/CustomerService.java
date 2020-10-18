@@ -6,16 +6,14 @@ import com.fabiogaiera.athena.utility.CustomerIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class CustomerService {
 
     private CustomerRepository customerRepository;
 
-    public Customer getCustomer(Long customerId) {
-        Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
-        return optionalCustomer.orElse(null);
+    public Customer getCustomer(Integer customerId) {
+        //Retrieve customer by customerId
+        return null;
     }
 
     public void newCustomer(Customer customer) {
@@ -25,6 +23,10 @@ public class CustomerService {
 
     public void deleteCustomer(Customer customer) {
         customerRepository.delete(customer);
+    }
+
+    public void modifyCustomer(Customer customer) {
+        customerRepository.save(customer);
     }
 
     @Autowired

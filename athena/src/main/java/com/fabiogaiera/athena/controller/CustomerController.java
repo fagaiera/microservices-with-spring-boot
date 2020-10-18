@@ -19,7 +19,7 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<Customer> getCustomer(@Valid
-                                                @NotNull Long customerId) {
+                                                @NotNull Integer customerId) {
         Customer customer = customerService.getCustomer(customerId);
         if (Objects.isNull(customer)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -31,19 +31,34 @@ public class CustomerController {
     public ResponseEntity<Void> newCustomer(@RequestBody
                                             @Valid
                                             @NotNull Customer customer) {
+        //TODO check if customerId exists before.
         customerService.newCustomer(customer);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping
     public ResponseEntity<Void> deleteCustomer(@Valid
-                                               @NotNull Long customerId) {
+                                               @NotNull Integer customerId) {
+        //TODO pass this logic to the service.
         Customer customer = customerService.getCustomer(customerId);
         if (Objects.isNull(customer)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         customerService.deleteCustomer(customer);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    public ResponseEntity<Void> modifyCustomer(@RequestBody
+                                               @Valid
+                                               @NotNull Customer customer) {
+        //TODO pass this logic to the service.
+        Customer customerFound = customerService.getCustomer(customer.getCustomerId());
+        if (Objects.isNull(customerFound)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        customerService.modifyCustomer(customerFound);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
     }
 
     @Autowired
