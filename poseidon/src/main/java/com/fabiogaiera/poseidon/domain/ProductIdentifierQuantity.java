@@ -3,7 +3,7 @@ package com.fabiogaiera.poseidon.domain;
 import lombok.Data;
 
 @Data
-public class ProductQuantity {
+public class ProductIdentifierQuantity {
 
     private String productIdentifier;
 

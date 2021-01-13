@@ -2,7 +2,7 @@ package com.fabiogaiera.poseidon.service;
 
 import com.fabiogaiera.poseidon.domain.Customer;
 import com.fabiogaiera.poseidon.domain.Product;
-import com.fabiogaiera.poseidon.domain.ProductQuantity;
+import com.fabiogaiera.poseidon.domain.ProductIdentifierQuantity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,13 +14,13 @@ public class PoseidonService {
         return null;
     }
 
-    public float getBillingAmount(List<ProductQuantity> productQuantityList) {
+    public float getBillingAmount(List<ProductIdentifierQuantity> productIdentifierQuantityList) {
 
         float billingAmount = 0f;
 
-        for (ProductQuantity productQuantity : productQuantityList) {
-            Product product = getProduct(productQuantity.getProductIdentifier());
-            billingAmount = billingAmount + (product.getPrice() * (productQuantity.getQuantity()));
+        for (ProductIdentifierQuantity productIdentifierQuantity : productIdentifierQuantityList) {
+            Product product = getProduct(productIdentifierQuantity.getProductIdentifier());
+            billingAmount = billingAmount + (product.getPrice() * (productIdentifierQuantity.getQuantity()));
         }
 
         return billingAmount;

@@ -21,7 +21,7 @@ public class PoseidonController {
         BillingResponse billingResponse = new BillingResponse();
 
         billingResponse.setCustomer(poseidonService.getCustomerDetails(billingRequest.getCustomerId()));
-        billingResponse.setAmount(poseidonService.getBillingAmount(billingRequest.getProductQuantityList()));
+        billingResponse.setAmount(poseidonService.getBillingAmount(billingRequest.getProductIdentifierQuantityList()));
 
         return new ResponseEntity<>(billingResponse, HttpStatus.CREATED);
 

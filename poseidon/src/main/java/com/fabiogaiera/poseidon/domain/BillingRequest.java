@@ -9,6 +9,6 @@ public class BillingRequest {
 
     private Integer customerId;
 
-    private List<ProductQuantity> productQuantityList;
+    private List<ProductIdentifierQuantity> productIdentifierQuantityList;
 
 }
