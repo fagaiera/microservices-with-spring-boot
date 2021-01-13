@@ -20,7 +20,7 @@ public class PoseidonController {
     public ResponseEntity<BillingResponse> generateBill(@RequestBody BillingRequest billingRequest) {
 
         BillingResponse billingResponse = new BillingResponse();
-        Customer customer = poseidonService.getCustomerDetails();
+        Customer customer = poseidonService.getCustomerDetails(billingRequest.getCustomerId());
 
         billingResponse.setCustomer(customer);
 
