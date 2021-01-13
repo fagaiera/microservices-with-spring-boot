@@ -1,4 +1,4 @@
-package com.fabiogaiera.poseidon.domain;
+package com.fabiogaiera.billingservice.domain;
 
 import lombok.Data;
 

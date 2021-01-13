@@ -1,4 +1,4 @@
-package com.fabiogaiera.poseidon.controller;
+package com.fabiogaiera.billingservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

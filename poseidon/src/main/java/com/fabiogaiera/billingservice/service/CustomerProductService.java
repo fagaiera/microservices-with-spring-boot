@@ -1,18 +1,18 @@
-package com.fabiogaiera.poseidon.service;
+package com.fabiogaiera.billingservice.service;
 
-import com.fabiogaiera.poseidon.domain.Customer;
-import com.fabiogaiera.poseidon.domain.Product;
-import com.fabiogaiera.poseidon.domain.ProductIdentifierQuantity;
-import com.fabiogaiera.poseidon.webclient.PoseidonClient;
+import com.fabiogaiera.billingservice.domain.Customer;
+import com.fabiogaiera.billingservice.domain.Product;
+import com.fabiogaiera.billingservice.domain.ProductIdentifierQuantity;
+import com.fabiogaiera.billingservice.webclient.WebClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PoseidonService {
+public class CustomerProductService {
 
-    private PoseidonClient poseidonClient;
+    private WebClient webClient;
 
     public Customer getCustomerDetails(Integer customerId) {
         return null;
@@ -32,12 +32,12 @@ public class PoseidonService {
     }
 
     public Product getProductDetails(String productIdentifier) {
-        return poseidonClient.getProduct(productIdentifier);
+        return webClient.getProduct(productIdentifier);
     }
 
     @Autowired
-    public void setPoseidonClient(PoseidonClient poseidonClient) {
-        this.poseidonClient = poseidonClient;
+    public void setWebClient(WebClient webClient) {
+        this.webClient = webClient;
     }
 
 }
