@@ -1,4 +1,4 @@
-package com.fabiogaiera.poseidon.controller;
+package com.fabiogaiera.poseidon.domain;
 
 public class BillingRequest {
 

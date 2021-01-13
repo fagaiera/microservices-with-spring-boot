@@ -1,6 +1,8 @@
 package com.fabiogaiera.poseidon.controller;
 
-import com.fabiogaiera.poseidon.service.Customer;
+import com.fabiogaiera.poseidon.domain.BillingRequest;
+import com.fabiogaiera.poseidon.domain.BillingResponse;
+import com.fabiogaiera.poseidon.domain.Customer;
 import com.fabiogaiera.poseidon.service.PoseidonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

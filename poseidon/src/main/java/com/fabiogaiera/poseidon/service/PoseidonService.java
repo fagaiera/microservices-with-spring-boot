@@ -1,5 +1,6 @@
 package com.fabiogaiera.poseidon.service;
 
+import com.fabiogaiera.poseidon.domain.Customer;
 import org.springframework.stereotype.Service;
 
 @Service
