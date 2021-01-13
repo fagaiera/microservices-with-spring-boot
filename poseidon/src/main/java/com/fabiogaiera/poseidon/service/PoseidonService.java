@@ -3,12 +3,16 @@ package com.fabiogaiera.poseidon.service;
 import com.fabiogaiera.poseidon.domain.Customer;
 import com.fabiogaiera.poseidon.domain.Product;
 import com.fabiogaiera.poseidon.domain.ProductIdentifierQuantity;
+import com.fabiogaiera.poseidon.webclient.PoseidonClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class PoseidonService {
+
+    private PoseidonClient poseidonClient;
 
     public Customer getCustomerDetails(Integer customerId) {
         return null;
@@ -28,7 +32,12 @@ public class PoseidonService {
     }
 
     public Product getProductDetails(String productIdentifier) {
-        return null;
+        return poseidonClient.getProduct(productIdentifier);
+    }
+
+    @Autowired
+    public void setPoseidonClient(PoseidonClient poseidonClient) {
+        this.poseidonClient = poseidonClient;
     }
 
 }
