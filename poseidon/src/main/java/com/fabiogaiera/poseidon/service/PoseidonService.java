@@ -19,7 +19,7 @@ public class PoseidonService {
         float billingAmount = 0f;
 
         for (ProductIdentifierQuantity productIdentifierQuantity : productIdentifierQuantityList) {
-            Product product = getProduct(productIdentifierQuantity.getProductIdentifier());
+            Product product = getProductDetails(productIdentifierQuantity.getProductIdentifier());
             billingAmount = billingAmount + (product.getPrice() * (productIdentifierQuantity.getQuantity()));
         }
 
@@ -27,7 +27,7 @@ public class PoseidonService {
 
     }
 
-    public Product getProduct(String productIdentifier) {
+    public Product getProductDetails(String productIdentifier) {
         return null;
     }
 
