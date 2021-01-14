@@ -1,7 +1,7 @@
-package com.fabiogaiera.athena.controller;
+package com.fabiogaiera.customer.controller;
 
-import com.fabiogaiera.athena.model.Customer;
-import com.fabiogaiera.athena.service.CustomerService;
+import com.fabiogaiera.customer.model.Customer;
+import com.fabiogaiera.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

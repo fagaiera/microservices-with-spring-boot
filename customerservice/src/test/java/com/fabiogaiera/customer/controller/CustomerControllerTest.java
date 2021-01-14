@@ -1,6 +1,6 @@
-package com.fabiogaiera.athena.controller;
+package com.fabiogaiera.customer.controller;
 
-import com.fabiogaiera.athena.service.CustomerService;
+import com.fabiogaiera.customer.service.CustomerService;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

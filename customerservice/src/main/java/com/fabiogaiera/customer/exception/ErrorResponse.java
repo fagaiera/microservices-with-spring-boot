@@ -1,4 +1,4 @@
-package com.fabiogaiera.athena.exception;
+package com.fabiogaiera.customer.exception;
 
 public class ErrorResponse {
 

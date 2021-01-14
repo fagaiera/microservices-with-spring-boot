@@ -1,9 +1,9 @@
-package com.fabiogaiera.athena.exception;
+package com.fabiogaiera.customer.model;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class CustomizedResponseEntityExceptionHandlerTest {
+public class CustomerTest {
 
 }

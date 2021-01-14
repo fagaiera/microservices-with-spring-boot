@@ -1,4 +1,4 @@
-package com.fabiogaiera.athena.model;
+package com.fabiogaiera.customer.model;
 
 import lombok.Data;
 

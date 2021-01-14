@@ -1,4 +1,4 @@
-package com.fabiogaiera.athena.utility;
+package com.fabiogaiera.customer.utility;
 
 public class CustomerIdGenerator {
 

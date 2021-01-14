@@ -1,8 +1,8 @@
-package com.fabiogaiera.athena.service;
+package com.fabiogaiera.customer.service;
 
-import com.fabiogaiera.athena.dao.CustomerRepository;
-import com.fabiogaiera.athena.model.Customer;
-import com.fabiogaiera.athena.utility.CustomerIdGenerator;
+import com.fabiogaiera.customer.dao.CustomerRepository;
+import com.fabiogaiera.customer.model.Customer;
+import com.fabiogaiera.customer.utility.CustomerIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

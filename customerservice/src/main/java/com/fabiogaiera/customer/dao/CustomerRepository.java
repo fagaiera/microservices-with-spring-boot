@@ -1,6 +1,6 @@
-package com.fabiogaiera.athena.dao;
+package com.fabiogaiera.customer.dao;
 
-import com.fabiogaiera.athena.model.Customer;
+import com.fabiogaiera.customer.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

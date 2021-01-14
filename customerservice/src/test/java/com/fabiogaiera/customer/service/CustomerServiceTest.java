@@ -1,4 +1,4 @@
-package com.fabiogaiera.athena.service;
+package com.fabiogaiera.customer.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
