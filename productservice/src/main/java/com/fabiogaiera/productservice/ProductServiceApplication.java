@@ -1,13 +1,13 @@
-package com.fabiogaiera.zeus;
+package com.fabiogaiera.productservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ZeusApplication {
+public class ProductServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ZeusApplication.class, args);
+		SpringApplication.run(ProductServiceApplication.class, args);
 	}
 
 }

@@ -1,7 +1,7 @@
-package com.fabiogaiera.zeus.controller;
+package com.fabiogaiera.productservice.controller;
 
-import com.fabiogaiera.zeus.model.Product;
-import com.fabiogaiera.zeus.service.ZeusService;
+import com.fabiogaiera.productservice.model.Product;
+import com.fabiogaiera.productservice.service.ProductCatalogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-public class ZeusController {
+public class ProductServiceController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ZeusController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProductServiceController.class);
 
-    private ZeusService zeusService;
+    private ProductCatalogService productCatalogService;
 
     @GetMapping("/getproduct")
     public ResponseEntity<Product> getProduct(@RequestParam("identifier") String identifier) {
 
-        Product product = zeusService.getProduct(identifier);
+        Product product = productCatalogService.getProduct(identifier);
         logger.info("Product retrieved: {}", product);
         return new ResponseEntity<>(product, HttpStatus.OK);
 
@@ -31,7 +31,7 @@ public class ZeusController {
     public ResponseEntity<Void> addProduct(@RequestBody Product product) {
 
         product.setIdentifier(UUID.randomUUID().toString());
-        Product productToBeAdded = zeusService.addProduct(product);
+        Product productToBeAdded = productCatalogService.addProduct(product);
         logger.info("Product added: {}", productToBeAdded);
         return new ResponseEntity<>(HttpStatus.CREATED);
 
@@ -53,8 +53,8 @@ public class ZeusController {
 
     // Bean initializer
     @Autowired
-    public void setZeusService(ZeusService zeusService) {
-        this.zeusService = zeusService;
+    public void setProductCatalogService(ProductCatalogService productCatalogService) {
+        this.productCatalogService = productCatalogService;
     }
 
 }

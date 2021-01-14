@@ -1,4 +1,4 @@
-package com.fabiogaiera.zeus.model;
+package com.fabiogaiera.productservice.model;
 
 import lombok.Getter;
 import lombok.Setter;
