@@ -14,10 +14,6 @@ public class CustomerProductService {
 
     private WebClient webClient;
 
-    public Customer getCustomerDetails(Integer customerId) {
-        return null;
-    }
-
     public float getBillingAmount(List<ProductIdentifierQuantity> productIdentifierQuantityList) {
 
         float billingAmount = 0f;
@@ -29,6 +25,10 @@ public class CustomerProductService {
 
         return billingAmount;
 
+    }
+
+    public Customer getCustomerDetails(Integer customerId) {
+        return webClient.getCustomer(customerId);
     }
 
     public Product getProductDetails(String productIdentifier) {
