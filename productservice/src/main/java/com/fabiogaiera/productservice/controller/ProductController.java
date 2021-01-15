@@ -1,7 +1,7 @@
 package com.fabiogaiera.productservice.controller;
 
 import com.fabiogaiera.productservice.model.Product;
-import com.fabiogaiera.productservice.service.ProductCatalogService;
+import com.fabiogaiera.productservice.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-public class ProductServiceController {
+public class ProductController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProductServiceController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-    private ProductCatalogService productCatalogService;
+    private ProductService productService;
 
     @GetMapping("/getproduct")
     public ResponseEntity<Product> getProduct(@RequestParam("identifier") String identifier) {
 
-        Product product = productCatalogService.getProduct(identifier);
+        Product product = productService.getProduct(identifier);
         logger.info("Product retrieved: {}", product);
         return new ResponseEntity<>(product, HttpStatus.OK);
 
@@ -31,7 +31,7 @@ public class ProductServiceController {
     public ResponseEntity<Void> addProduct(@RequestBody Product product) {
 
         product.setIdentifier(UUID.randomUUID().toString());
-        Product productToBeAdded = productCatalogService.addProduct(product);
+        Product productToBeAdded = productService.addProduct(product);
         logger.info("Product added: {}", productToBeAdded);
         return new ResponseEntity<>(HttpStatus.CREATED);
 
@@ -53,8 +53,8 @@ public class ProductServiceController {
 
     // Bean initializer
     @Autowired
-    public void setProductCatalogService(ProductCatalogService productCatalogService) {
-        this.productCatalogService = productCatalogService;
+    public void setProductCatalogService(ProductService productService) {
+        this.productService = productService;
     }
 
 }

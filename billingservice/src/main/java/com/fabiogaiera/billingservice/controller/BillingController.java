@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @RestController
-public class BillingGeneratorController {
+public class BillingController {
 
     private CustomerProductService customerProductService;
 
