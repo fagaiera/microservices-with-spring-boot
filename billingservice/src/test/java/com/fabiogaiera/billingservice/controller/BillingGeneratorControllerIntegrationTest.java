@@ -7,7 +7,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class BillingGeneratorControllerTest {
+public class BillingGeneratorControllerIntegrationTest {
 
     private MockMvc mockMvc;
 

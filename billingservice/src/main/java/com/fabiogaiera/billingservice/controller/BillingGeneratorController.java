@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 @RestController
 public class BillingGeneratorController {
 
     private CustomerProductService customerProductService;
 
     @PostMapping("/generatebill")
-    public ResponseEntity<BillingResponse> generateBill(@RequestBody BillingRequest billingRequest) {
+    public ResponseEntity<BillingResponse> generateBill(@RequestBody @Valid @NotNull BillingRequest billingRequest) {
 
         BillingResponse billingResponse = new BillingResponse();
 
