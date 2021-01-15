@@ -29,7 +29,7 @@ public class BillingGeneratorController {
         BillingResponse billingResponse = new BillingResponse();
 
         billingResponse.setCustomer(customerProductService.getCustomerDetails(billingRequest.getCustomerIdentifier()));
-        billingResponse.setAmount(customerProductService.getBillingAmount(billingRequest.getProductIdentifierQuantityList()));
+        billingResponse.setAmount(customerProductService.getBillingAmount(billingRequest.getProductIdentifierQuantityMap()));
 
         logger.info(String.format("%s%s", "Bill generated for customer identifier ", billingRequest.getCustomerIdentifier()));
 

@@ -2,13 +2,13 @@ package com.fabiogaiera.billingservice.domain;
 
 import lombok.Data;
 
-import java.util.List;
+import java.util.Map;
 
 @Data
 public class BillingRequest {
 
     private Integer customerIdentifier;
 
-    private List<ProductIdentifierQuantity> productIdentifierQuantityList;
+    private Map<String, Integer> productIdentifierQuantityMap;
 
 }

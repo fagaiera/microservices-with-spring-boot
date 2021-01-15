@@ -2,25 +2,24 @@ package com.fabiogaiera.billingservice.service;
 
 import com.fabiogaiera.billingservice.domain.Customer;
 import com.fabiogaiera.billingservice.domain.Product;
-import com.fabiogaiera.billingservice.domain.ProductIdentifierQuantity;
 import com.fabiogaiera.billingservice.webclient.WebClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Map;
 
 @Service
 public class CustomerProductService {
 
     private WebClient webClient;
 
-    public float getBillingAmount(List<ProductIdentifierQuantity> productIdentifierQuantityList) {
+    public float getBillingAmount(Map<String, Integer> productIdentifierQuantityList) {
 
         float billingAmount = 0f;
 
-        for (ProductIdentifierQuantity productIdentifierQuantity : productIdentifierQuantityList) {
-            Product product = getProductDetails(productIdentifierQuantity.getProductIdentifier());
-            billingAmount = billingAmount + (product.getPrice() * (productIdentifierQuantity.getQuantity()));
+        for (Map.Entry<String, Integer> entry : productIdentifierQuantityList.entrySet()) {
+            Product product = getProductDetails(entry.getKey());
+            billingAmount = billingAmount + (product.getPrice() * (entry.getValue()));
         }
 
         return billingAmount;
