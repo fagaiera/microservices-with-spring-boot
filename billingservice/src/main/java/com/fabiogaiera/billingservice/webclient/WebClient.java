@@ -19,11 +19,13 @@ public class WebClient {
     private String urlCustomerService;
 
     public Product getProduct(String productIdentifier) {
-        return restTemplate.getForObject(urlProductService, Product.class);
+        return restTemplate.getForObject(
+                String.format("%s%s%s", urlProductService, "/?", productIdentifier), Product.class);
     }
 
-    public Customer getCustomer(Integer customerId) {
-        return restTemplate.getForObject(urlCustomerService, Customer.class);
+    public Customer getCustomer(Integer customerIdentifier) {
+        return restTemplate.getForObject(
+                String.format("%s%s%d", urlCustomerService, "/?", customerIdentifier), Customer.class);
     }
 
     @Autowired
