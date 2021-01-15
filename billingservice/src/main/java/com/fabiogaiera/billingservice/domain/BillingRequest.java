@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class BillingRequest {
 
-    private Integer customerId;
+    private Integer customerIdentifier;
 
     private List<ProductIdentifierQuantity> productIdentifierQuantityList;
 

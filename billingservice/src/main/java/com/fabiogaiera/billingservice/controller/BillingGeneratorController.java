@@ -3,6 +3,8 @@ package com.fabiogaiera.billingservice.controller;
 import com.fabiogaiera.billingservice.domain.BillingRequest;
 import com.fabiogaiera.billingservice.domain.BillingResponse;
 import com.fabiogaiera.billingservice.service.CustomerProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +20,18 @@ public class BillingGeneratorController {
 
     private CustomerProductService customerProductService;
 
+    private static final Logger logger = LoggerFactory.getLogger(CustomerProductService.class);
+
+
     @PostMapping("/generatebill")
     public ResponseEntity<BillingResponse> generateBill(@RequestBody @Valid @NotNull BillingRequest billingRequest) {
 
         BillingResponse billingResponse = new BillingResponse();
 
-        billingResponse.setCustomer(customerProductService.getCustomerDetails(billingRequest.getCustomerId()));
+        billingResponse.setCustomer(customerProductService.getCustomerDetails(billingRequest.getCustomerIdentifier()));
         billingResponse.setAmount(customerProductService.getBillingAmount(billingRequest.getProductIdentifierQuantityList()));
+
+        logger.info(String.format("%s%s", "Bill generated for customer identifier ", billingRequest.getCustomerIdentifier()));
 
         return new ResponseEntity<>(billingResponse, HttpStatus.CREATED);
 
