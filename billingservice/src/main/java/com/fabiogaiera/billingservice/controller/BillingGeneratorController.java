@@ -26,12 +26,13 @@ public class BillingGeneratorController {
     @PostMapping("/generatebill")
     public ResponseEntity<BillingResponse> generateBill(@RequestBody @Valid @NotNull BillingRequest billingRequest) {
 
-        BillingResponse billingResponse = new BillingResponse();
+        logger.info(String.format("%s%s", "Start generating bill for customer identifier ", billingRequest.getCustomerIdentifier()));
 
+        BillingResponse billingResponse = new BillingResponse();
         billingResponse.setCustomer(customerProductService.getCustomerDetails(billingRequest.getCustomerIdentifier()));
         billingResponse.setAmount(customerProductService.getBillingAmount(billingRequest.getProductIdentifierQuantityMap()));
 
-        logger.info(String.format("%s%s", "Bill generated for customer identifier ", billingRequest.getCustomerIdentifier()));
+        logger.info(String.format("%s%s", "End generating bill for customer identifier ", billingRequest.getCustomerIdentifier()));
 
         return new ResponseEntity<>(billingResponse, HttpStatus.CREATED);
 

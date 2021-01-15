@@ -13,21 +13,21 @@ public class CustomerProductService {
 
     private WebClient webClient;
 
-    public float getBillingAmount(Map<String, Integer> productIdentifierQuantityList) {
+    public float getBillingAmount(Map<String, Integer> productIdentifierQuantityMap) {
 
         float billingAmount = 0f;
 
-        for (Map.Entry<String, Integer> entry : productIdentifierQuantityList.entrySet()) {
+        for (Map.Entry<String, Integer> entry : productIdentifierQuantityMap.entrySet()) {
             Product product = getProductDetails(entry.getKey());
-            billingAmount = billingAmount + (product.getPrice() * (entry.getValue()));
+            billingAmount = billingAmount + (product.getPrice() * entry.getValue());
         }
 
         return billingAmount;
 
     }
 
-    public Customer getCustomerDetails(Integer customerId) {
-        return webClient.getCustomer(customerId);
+    public Customer getCustomerDetails(Integer customerIdentifier) {
+        return webClient.getCustomer(customerIdentifier);
     }
 
     public Product getProductDetails(String productIdentifier) {
