@@ -1,4 +1,4 @@
-package com.fabiogaiera.billingservice.exception;
+package com.fabiogaiera.productservice.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
