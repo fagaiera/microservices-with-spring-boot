@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Product {
 
-    private Integer productId;
+    private Integer productIdentifier;
 
     private String description;
 

@@ -22,7 +22,6 @@ public class BillingController {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerProductService.class);
 
-
     @PostMapping("/generatebill")
     public ResponseEntity<BillingResponse> generateBill(@RequestBody @Valid @NotNull BillingRequest billingRequest) {
 
